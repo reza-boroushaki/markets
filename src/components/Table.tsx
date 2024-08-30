@@ -9,33 +9,7 @@ import {
   TOTAL_PAGE_COUNT,
 } from "../utils/constants";
 import { ColumnsType, DataType, TableParams } from "../utils/types";
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    width: "20%",
-    render: (_, record) => (
-      <div className="flex items-center gap-4">
-        <img
-          src={record.image}
-          alt={record.name}
-          style={{ width: 30, height: 30, marginRight: 8 }}
-        />
-        <span>{record.name}</span>
-      </div>
-    ),
-  },
-  {
-    title: "Current Price",
-    dataIndex: "current_price",
-    width: "20%",
-  },
-  {
-    title: "Circulating Supply",
-    dataIndex: "circulating_supply",
-  },
-];
+import { currencySymbol } from "../utils";
 
 const Table = () => {
   const [data, setData] = useState<DataType[]>();
@@ -51,6 +25,38 @@ const Table = () => {
     page: Number(searchParams.get("page")) || 1,
   });
 
+  const columns: ColumnsType<DataType> = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      width: "20%",
+      render: (_, record) => (
+        <div className="flex items-center gap-4">
+          <img
+            src={record.image}
+            alt={record.name}
+            style={{ width: 30, height: 30, marginRight: 8 }}
+          />
+          <span>{record.name}</span>
+        </div>
+      ),
+    },
+    {
+      title: "Current Price",
+      dataIndex: "current_price",
+      width: "20%",
+      render: (_, record) => (
+        <span>
+          {currencySymbol(tableParams.vs_currency, record.current_price)}
+        </span>
+      ),
+    },
+    {
+      title: "Circulating Supply",
+      dataIndex: "circulating_supply",
+    },
+  ];
+
   useEffect(() => {
     (async () => {
       try {
@@ -64,7 +70,6 @@ const Table = () => {
         );
         const result = await response.json();
         setData(result);
-        console.log(result);
       } catch (error) {
         console.log(error);
       } finally {
