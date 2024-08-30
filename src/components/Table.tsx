@@ -10,6 +10,7 @@ import {
 } from "../utils/constants";
 import { ColumnsType, DataType, TableParams } from "../utils/types";
 import { currencySymbol } from "../utils";
+import Indicator from "./Indicator";
 
 const Table = () => {
   const [data, setData] = useState<DataType[]>();
@@ -50,6 +51,11 @@ const Table = () => {
           {currencySymbol(tableParams.vs_currency, record.current_price)}
         </span>
       ),
+    },
+    {
+      title: "24h",
+      dataIndex: "market_cap_change_percentage_24h",
+      render: (data) => <Indicator data={data} />,
     },
     {
       title: "Circulating Supply",
