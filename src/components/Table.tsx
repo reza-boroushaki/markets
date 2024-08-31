@@ -11,6 +11,7 @@ import {
 import { ColumnsType, DataType, TableParams } from "../utils/types";
 import { currencySymbol } from "../utils";
 import Indicator from "./Indicator";
+import Sparkline from "./Sparkline";
 
 const Table = () => {
   const [data, setData] = useState<DataType[]>();
@@ -60,6 +61,13 @@ const Table = () => {
     {
       title: "Circulating Supply",
       dataIndex: "circulating_supply",
+    },
+    {
+      title: "Last 7 days",
+      dataIndex: "sparkline_in_7d",
+      render: (_, record) => (
+        <Sparkline priceData={record.sparkline_in_7d.price} />
+      ),
     },
   ];
 

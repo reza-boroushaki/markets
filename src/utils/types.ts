@@ -12,6 +12,9 @@ export type DataType = {
   name: string;
   current_price: string;
   circulating_supply: string;
+  sparkline_in_7d: {
+    price: number[];
+  };
 };
 
 export interface TableParams {
