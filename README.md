@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <br />
+    <a href="" target="_blank">
+      <img width="1680" alt="Screenshot 2024-09-02 at 11 50 55 PM" src="https://github.com/user-attachments/assets/d65a793b-bc15-4a32-8c22-724f55a4a649">
+    </a>
+  <br /><br />
 
-Currently, two official plugins are available:
+  <div align="center">
+    <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" width="30" alt="react.js" />
+    <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" width="30" alt="typescript" />
+    <img src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" width="40" alt="tailwindcss" />
+    <img src="https://cdn.worldvectorlogo.com/logos/d3js.svg" width="40" alt="tailwindcss" />
+  </div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <h3 align="center">Cryptomarket</h3>
 
-## Expanding the ESLint configuration
+  <h4><a href="https://cryptomarket-a9217.web.app/" target="_blank">Visit Website</a></h4>
+  
+</div>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## <a name="introduction">Features</a>
 
-- Configure the top-level `parserOptions` property like this:
+- Leveraged Ant Design as the primary design system for a consistent and modern user interface.
+- Implemented a currency filter within the table for better data customization.
+- Added functionality to sort the table data in both ascending and descending order.
+- Enabled query parameters for page, page size, currency, and sorting to facilitate easy bookmarking and sharing of URLs.
+- Integrated D3.js to display dynamic line charts.
+- Ensured the application is fully responsive for an optimal user experience across devices.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## <a name="tech-stack">Tech Stack</a>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Vite
+- React.js
+- Typescript
+- Tailwind CSS
+- D3.js
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  
