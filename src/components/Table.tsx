@@ -54,6 +54,7 @@ const Table = () => {
       title: "24h",
       dataIndex: "market_cap_change_percentage_24h",
       render: (data) => <Indicator data={data} />,
+      responsive: ["md"],
     },
     {
       title: "Circulating Supply",
@@ -65,6 +66,7 @@ const Table = () => {
       render: (_, record) => (
         <Sparkline priceData={record.sparkline_in_7d.price} />
       ),
+      responsive: ["md"],
     },
   ];
 
