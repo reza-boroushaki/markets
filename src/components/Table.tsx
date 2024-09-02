@@ -12,6 +12,7 @@ import { ColumnsType, DataType, TableParams } from "../utils/types";
 import { currencySymbol } from "../utils";
 import Indicator from "./Indicator";
 import Sparkline from "./Sparkline";
+import { Image } from "antd";
 
 const Table = () => {
   const [data, setData] = useState<DataType[]>();
@@ -34,11 +35,7 @@ const Table = () => {
       width: "20%",
       render: (_, record) => (
         <div className="flex items-center gap-4">
-          <img
-            src={record.image}
-            alt={record.name}
-            style={{ width: 30, height: 30, marginRight: 8 }}
-          />
+          <Image width={30} src={record.image} />
           <span>{record.name}</span>
         </div>
       ),
