@@ -91,20 +91,18 @@ const Table = () => {
     })();
   }, [tableParams]);
 
+  // generic function to update query params with custom key and value type
   function updateSearchParam<T extends keyof TableParams>(
     value: string | number,
     key: T
   ) {
-    // Convert value to string (in case it's a number) and set it in the URL
     searchParams.set(key as string, value.toString().toLocaleLowerCase());
 
-    // Update the URL without reloading the page
     window.history.replaceState(null, "", `?${searchParams.toString()}`);
 
-    // Optionally update state if needed
     setTableParams((prev) => ({
       ...prev,
-      [key]: value, // Dynamically update the key in state with either string or number
+      [key]: value,
     }));
   }
 
@@ -149,17 +147,16 @@ const Table = () => {
           pageSize: tableParams.per_page,
           total: TOTAL_PAGE_COUNT,
           onChange: (page, pageSize) => {
+            // detect whether is a page change or page size
             if (page !== tableParams.page) {
               updateSearchParam(page, "page");
             }
             if (pageSize !== tableParams.per_page) {
               updateSearchParam(pageSize, "per_page");
             }
-            // Handle pagination click here
           },
         }}
         loading={loading}
-        // onChange={handleTableChange}
       />
     </>
   );
